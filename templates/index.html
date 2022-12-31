@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block home_active %}active{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    {% if exists ("user") %}
+      {% if user.is_superuser ==true %}
+        <h1 class="display-5 fw-bold">HELLO, Administrator</h1>
+      {% else %}
+        <h1 class="display-5 fw-bold">HELLO, User</h1>
+      {% endif %}
+    {% else %}
+    <h1 class="display-5 fw-bold">HELLO, tourist</h1>
+    {% endif %}
+    <p class="col-md-8 fs-4">Here is a Music Library for you to record songs you like and Mark them as you wish.</p>
+    <ul class="nav nav-pills"></ul>  
+      <li class="nav-item">
+        <a class="nav-link active btn-outline-secondary h-100" href="/music">Click to musiclist</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row align-items-md-stretch">
+  <div class="col-md-6">
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <h2>Exploration</h2>
+      <p>Now let's have an own username to explore more. Please click ADD USER above to register and then login.</p>
+      <button class="btn btn-outline-light" type="button" herf="\">To the Home</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h2>Community</h2>
+      <p>You can post your opinion in our community!</p>
+      <button class="btn btn-outline-secondary" type="button" herf="\comments">Click to view</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
